@@ -1,0 +1,16 @@
+@mixin container {
+  width: $desktop-large-width;
+  max-width: 980px;
+  
+  @include media($desktop-large-and-down) {
+    width: $desktop-large-width;
+  }
+
+  @include media($desktop-and-down) {
+    width: $desktop-width;
+  }
+
+  @include media($phone-and-down) {
+    width: $phone-width;
+  }
+}

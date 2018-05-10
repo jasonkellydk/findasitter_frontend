@@ -1,0 +1,51 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 60px);
+
+  &::after {
+    content: "";
+    background: url('/static/images/auth/background.jpg');
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  &__form {
+    background-color: $color--white;
+    box-shadow: 0 2px 15px rgba(50, 50, 93, 0.1);
+    width: 500px;
+    padding: 2rem;
+
+    &__heading {
+      text-align: center;
+      font-weight: 400;
+      font-size: 6rem;
+      margin: 0;
+      text-transform: lowercase;
+    }
+
+    &__subheading {
+      text-align: center;
+    }
+
+    &__wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__element {
+      padding-top: 1.5rem;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+  }
+}

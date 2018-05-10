@@ -1,0 +1,17 @@
+.application {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__container {
+    margin-top: 60px;
+    @include container;
+  }
+}
+
+body {
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
