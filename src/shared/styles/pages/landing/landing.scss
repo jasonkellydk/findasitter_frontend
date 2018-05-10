@@ -1,11 +1,19 @@
 .landing {
-  .hero-search {
+  .hero {
     height: 80vh;
     display: flex;
+    align-items: center;
+  }
+
+  .hero-search {
+    padding-bottom: 20%;
+    height: 20vh;
+    display: flex;
     flex-wrap: wrap;
-    align-items: flex-start;
+    align-items: center;
 
     &__heading {
+      margin: 0;
       width: 70%;
       font-size: calc(2vw + 9px);
       color: $color--white;
@@ -18,15 +26,15 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 80vh;
+      height: 90vh;
       min-height: 650px;
       background-size: cover;
       z-index: -1;
       transition: all ease-in-out 1s;
       animation-name: imageAnimation;
-      animation-duration: 36s;
+      animation-duration: 30s;
       animation-iteration-count: infinite;
-      animation-timing-function: ease-in-out;
+      animation-timing-function: ease-in;
     }
 
     &::after {
@@ -69,13 +77,18 @@
     }
 
     &__heading {
-      text-align: center;
-      color: $color--black;
+      text-align: left;
+    }
+
+    &__subheading {
+      color: $color--grey;
     }
 
     &__header {
       font-size: 1.5rem;
       font-weight: 500;
+      margin: 0;
+      color: $color--black;
     }
 
     &__row {
@@ -86,8 +99,9 @@
 
 
     .review {
-      width: 30%;
-      margin: 1rem;
+      width: 23%;
+      margin-right: 1rem;
+      margin-bottom: 1rem;
 
       &__inner {
         padding: 1rem;
@@ -100,13 +114,6 @@
         font-weight: 300;
         font-size: .9rem;
         text-align: justify;
-      }
-
-      &__image {
-        width: 110%;
-        opacity: .9;
-        margin-left: -1rem;
-        margin-top: -1rem;
       }
     }
   }

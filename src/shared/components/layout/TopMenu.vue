@@ -2,14 +2,17 @@
   <nav class="navbar" role="navigation">
     <div class="navbar__container">
       <div class="navbar__logo">
-        <i class="ion-compass"></i>
+        <i class="ion-ribbon-b"></i>
       </div>
       <ul class="navbar__items">
         <li class="navbar__items__item">
-          <router-link class="navbar__items__item__link" :to="{ name: 'Index' }">Find sitter</router-link>
+          <router-link class="navbar__items__item__link" :to="{ name: 'Index' }">Find babysitter</router-link>
         </li>
         <li class="navbar__items__item">
-          <router-link class="navbar__items__item__link" :to="{ name: 'Index' }">Bliv sitter</router-link>
+          <router-link class="navbar__items__item__link" :to="{ name: 'Index' }">Hjælp</router-link>
+        </li>
+        <li class="navbar__items__item">
+          <router-link class="navbar__items__item__link" :to="{ name: 'Index' }">Tilmeld</router-link>
         </li>
         <li class="navbar__items__item" v-if="!isAuthenticated">
           <router-link class="navbar__items__item__link" :to="{ name: 'auth.login' }">Log ind</router-link>
