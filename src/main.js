@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import App from './app'
+import App from './App'
 
 import './shared/packages/packages'
 import i18n from './infrastructure/lang/locale'
