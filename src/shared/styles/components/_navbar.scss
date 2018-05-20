@@ -6,11 +6,19 @@
   left: 0;
   right: 0;
   height: 60px;
+  z-index: 100;
 
-
-  &--floating {
-    box-shadow: 0 2px 15px rgba(50, 50, 93, 0.1);
+  &--scrolled {
+    position: fixed;
     background: $color--white;
+    box-shadow: 0 2px 15px rgba(50, 50, 93, 0.1);
+
+    a {
+      color: $color--black;
+    }
+    i {
+      color: $color--red;
+    }
   }
 
   &__container {
@@ -36,6 +44,16 @@
     cursor: pointer;
     user-select: none;
     padding-right: 1rem;
+
+    &--black {
+      a {
+        color: $color--black;
+
+        &:hover {
+          border-color: $color--black;
+        }
+      }
+    }
 
     &__item {
       display: inline;

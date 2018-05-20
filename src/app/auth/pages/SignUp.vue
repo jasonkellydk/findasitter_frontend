@@ -1,15 +1,27 @@
 <template>
-  <div class="login">
-      <div class="login__image">
+  <div class="signup">
+      <div class="signup__image">
       </div>
-      <div class="login-form">
-        <form @submit.prevent="authenticate" class="login__form__wrapper">
+      <div class="signup-form">
+        <form @submit.prevent="authenticate" class="signup__form__wrapper">
           <div>
-            <p class="login-form__heading">Find din næste babysitter</p>
-            <p class="login-form__subheading">Login</p>
+            <p class="signup-form__heading">Bliv den babysitter du selv vil bruge</p>
+            <p class="signup-form__subheading"><b> Tilmeld dig idag</b></p>
           </div>
 
-          <div class="login-form__element">
+           <div class="signup-form__element">
+            <input
+              v-model="name"
+              class="form__element"
+              name="name"
+              type="text"
+              placeholder="navn"
+              v-validate="'required'"
+            />
+          </div>
+          <span class="error" v-show="errors.has('name')">{{ errors.first('name') }}</span>
+
+          <div class="signup-form__element">
             <input
               v-model="email"
               class="form__element"
@@ -21,7 +33,7 @@
           </div>
           <span class="error" v-show="errors.has('email')">{{ errors.first('email') }}</span>
 
-          <div class="login-form__element">
+          <div class="signup-form__element">
             <input
               v-model="password"
               class="form__element"
@@ -34,23 +46,35 @@
           </div>
           <span class="error" v-show="errors.has('password')">{{ errors.first('password') }}</span>
 
+          <div class="signup-form__element">
+            <label for="sitter">
+              Sitter
+              <input id="sitter" type="radio" name="role" v-model="role" value="sitter">
+            </label>
+            &nbsp; &nbsp; &nbsp;
+            <label for="baby">
+              Baby
+              <input id="baby" type="radio" name="role" v-model="role" value="baby">
+            </label>
+          </div>
+
           <div v-if="hasError">
             <h4 class="error">Dine oplysninger stemmer ikke overens</h4>
           </div>
 
-          <div class="login-form__element">
+          <div class="signup-form__element">
             <button
               v-if="isLoading"
               type="submit"
-              class="button button--primary login-form__button"
+              class="button button--primary signup-form__button"
               disabled>
               <i class="fas fa-circle-notch fa-spin"></i>
             </button>
             <button
               v-else
               type="submit"
-              class="button button--primary login-form__button">
-              Login
+              class="button button--primary signup-form__button">
+              Tilmeld
             </button>
           </div>
         </form>
@@ -64,8 +88,10 @@ import { mapState } from 'vuex'
 export default {
   data () {
     return {
+      name: '',
       email: '',
-      password: ''
+      password: '',
+      role: ''
     }
   },
   computed: {
@@ -79,6 +105,8 @@ export default {
     async authenticate () {
       const email = this.email
       const password = this.password
+      const name = this.name
+      const role = this.role
 
       const result = await this.$validator.validateAll()
 
@@ -86,10 +114,12 @@ export default {
         return
       }
 
-      this.$store.dispatch('auth/authenticate', {
+      this.$store.dispatch('auth/createUser', {
         user: {
           email,
-          password
+          password,
+          name,
+          role
         },
         cb: () => {
           this.$router.replace({ name: 'Index' })

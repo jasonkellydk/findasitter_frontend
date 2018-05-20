@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App'
 
 import './shared/packages/packages'
+import './shared/components/components'
 import i18n from './infrastructure/lang/locale'
 import moment from './infrastructure/lang/moment'
 import router from './infrastructure/router/router'

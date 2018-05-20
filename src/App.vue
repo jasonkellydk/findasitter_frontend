@@ -9,6 +9,9 @@
       name: 'app',
       components: {
         layout
+      },
+      mounted () {
+        this.$store.dispatch('user/findAllUsers')
       }
     }
 </script>

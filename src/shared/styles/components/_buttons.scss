@@ -25,6 +25,15 @@
     background: $color--red;
     border-color: $color--red;
 
+    &:disabled {
+      opacity: .8;
+      &:hover {
+        color: $color--white;
+        background: $color--red;
+        border-color: $color--red;
+      }
+    }
+
     &:hover {
       color: $color--red;
       background: transparent;
@@ -40,6 +49,27 @@
         color: $color--white;
         background: $color--red;
         border-color: $color--red;
+      }
+    }
+  }
+
+  &--secondary {
+    background: $color--grey;
+    color: $color--white;
+    border-color: $color--grey;
+
+    &:hover {
+      color: $color--grey;
+      background: transparent;
+    }
+
+    &--outline {
+      color: $color--grey;
+      background: transparent;
+      
+      &:hover {
+        color: $color--white;
+        background: $color--grey;
       }
     }
   }

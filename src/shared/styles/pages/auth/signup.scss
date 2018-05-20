@@ -1,49 +1,73 @@
-.hero {
-  min-height: 550px;
-  height: 80vh;
+.signup {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
 
-  &__signup {
-    height: 350px;
-    width: 400px;
-    background: $color--white;
-    box-shadow: 0 2px 15px rgba(50, 50, 93, 0.1);
-    padding: 2rem;
-    border-radius: 4px;
+  &__image {
+    height: 100%;
+    position: relative;
+    width: 60%;
+
+    &::after {
+      content: "";
+      background: url('/static/images/auth/background.jpg');
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
   }
 
-  &__header {
-    font-size: 2.5rem;
-    font-weight: 500;
-    color: $color--black;
+}
+
+.error {
+  color: $color--red;
+}
+
+.signup-form {
+  background-color: $color--white;
+  color: $color--black;
+  width: 40%;
+  height: 100%;
+  padding: 10rem 5rem;
+  box-sizing: border-box;
+
+  &__heading {
+    text-align: left;
+    font-weight: 400;
+    font-size: 2rem;
     margin: 0;
-
-    &--center {
-      text-align: center;
-    }
+    text-transform: lowercase;
   }
 
-  &__subheader {
-    font-size: 1rem;
-    color: $color--black;
+  &__subheading {
+    text-align: left;
   }
 
-  &__button  {
-    margin-top: 2rem;
+  &__button {
+    width: 250px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__element {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
     width: 100%;
-  }
-
-  &__form {
-    margin-top: 2rem;
-
-    .form__input {
-      width: 100%;
-      margin-bottom: 1rem;
-    }
-
-    .form__group {
-      .form__input {   
-        width: 48%;
-      }
-    }
+    display: flex;
+    justify-content: center;
   }
 }

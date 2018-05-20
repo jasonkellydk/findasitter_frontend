@@ -1,0 +1,30 @@
+.baby-browser {
+  &__header {}
+
+  &__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: $color--black;
+  }
+
+  .list {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    &__item {
+      margin: 1rem;
+      padding: 1rem;
+      box-shadow: 0 2px 15px rgba(50, 50, 93, 0.1);
+      text-align: center;
+    }
+
+    &__image {
+      border-radius: 80px;
+    }
+  }
+}

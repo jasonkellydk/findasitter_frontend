@@ -4,16 +4,30 @@ const state = {
   user: null,
   isAuthenticated: false,
   isReady: false,
+  isLoading: false,
+  hasError: false,
   accessToken: null
 }
 
 // Actions async
 const actions = {
+  createUser ({ commit, dispatch }, payload) {
+    post(baseUrl + '/users', payload.user, response => {
+      dispatch('authenticate', payload)
+    }, () => {
+      commit('setLoading', false)
+      commit('setError', true)
+    })
+  },
   authenticate ({ commit }, payload) {
+    commit('setLoading', true)
+    commit('setError', false)
+
     post(baseUrl + '/auth/login', payload.user, response => {
       const { data: { accessToken } } = response
 
       commit('setAuthentication', accessToken)
+      commit('setLoading', false)
 
       payload.cb()
 
@@ -23,6 +37,9 @@ const actions = {
           commit('setUser', data)
         })
       }, 0)
+    }, () => {
+      commit('setLoading', false)
+      commit('setError', true)
     })
   },
   signOut ({ commit }) {
@@ -40,6 +57,12 @@ const mutations = {
   setAuthentication (state, accessToken) {
     state.accessToken = accessToken
     state.isAuthenticated = accessToken !== null
+  },
+  setLoading (state, loading) {
+    state.isLoading = loading
+  },
+  setError (state, error) {
+    state.hasError = error
   }
 }
 

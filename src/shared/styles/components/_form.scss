@@ -8,10 +8,10 @@ input.form__element {
   background-color: $color--white;
   background-clip: padding-box;
   border: 1px solid transparent;
-  border-radius: .25rem;
   transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
   box-shadow: 0 2px 15px rgba(50, 50, 93, 0.1);
   outline: none;
+  border-radius: .25rem;
 }
 
 .form {
@@ -21,11 +21,27 @@ input.form__element {
     border: 1px solid transparent;
     box-sizing: border-box;
     outline: none;
+    border-radius: .25rem;
     box-shadow: 0 2px 15px rgba(50, 50, 93, 0.1);
   }
 
   &__group {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__element {
+    padding-top: 1rem;
+  }
+}
+
+.rating-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+
+  &__comment {
+    resize: none;
   }
 }

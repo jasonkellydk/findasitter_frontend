@@ -1,0 +1,62 @@
+.profile {
+  &__bar {
+    position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: $color--black;
+  }
+  .cover {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: $color--yellow;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    &__image {
+      margin-top: 100px;
+      width: 100px;
+      margin: 0 auto;
+      border-radius: 80px;
+    }
+
+    &__header {
+      margin: 0;
+      margin-top: 1rem;
+      text-align: center;
+      color: $color--white;
+    }
+
+    &__location {
+      margin: 0;
+      text-align: center;
+    }
+
+    &__rating {
+      padding-top: 1rem;
+      margin: 0 auto;
+    }
+
+    &__cta {
+      padding-top: 2rem;
+      margin: 0 auto;
+    }
+
+    &__form {
+      margin: 0 auto;
+      position: absolute;
+      background: $color--white;
+      box-shadow: 0 2px 15px rgba(50, 50, 93, 0.1);
+    }
+
+    &__rating-btn {
+      position: relative;
+      display: inline-block;
+    }
+  }
+}
